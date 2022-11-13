@@ -4,10 +4,11 @@ import Clipboard from "../../assets/Clipboard.svg";
 import styles from "../Tasks/Tasks.module.css";
 
 interface Props {
-    tasks: ITask[]
+    tasks: ITask[];
+    onDelete: (taskId: string) => void;
 }
 
-export function Tasks({ tasks }: Props) {
+export function Tasks({ tasks, onDelete }: Props) {
 
     const taskCount = tasks.length;
     const taskCompleted = tasks.filter((task) => task.isCompleted).length;
@@ -30,6 +31,7 @@ export function Tasks({ tasks }: Props) {
                     <Task
                         key={task.id}
                         task={task}
+                        onDelete={onDelete}
                     />
                 ))}
 
