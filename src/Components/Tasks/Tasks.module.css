@@ -13,6 +13,15 @@
     margin-bottom: 1.5rem;
 }
 
+.header span {
+    background: var(--gray-400);
+    color: var(--gray-200);
+    padding: 3px 9px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
 .header > div {
     display: flex;
     align-items: center;

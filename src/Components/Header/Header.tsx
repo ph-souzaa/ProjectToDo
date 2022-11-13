@@ -29,6 +29,7 @@ export function Header({ onAddTask }: Props) {
             <form className={styles.newTaskForm} onSubmit={handleSubmit}>
                 <input
                     type="text"
+                    placeholder='Adicione uma nova tarefa'
                     onChange={onChangeTitle}
                     value={title}
                     required
