@@ -27,3 +27,24 @@
 .header p.textPurple{
     color: var(--purple);
 }
+
+.empty{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 4rem;
+    gap: 1rem;
+    color: var(--gray-300);
+    text-align: center;
+}
+
+.empty p{
+    font-weight: 700;
+}
+
+.list{
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}

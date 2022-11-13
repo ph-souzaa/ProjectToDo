@@ -1,5 +1,6 @@
 import { ITask } from "../../App";
 import { Task } from "../Task/Task";
+import Clipboard from "../../assets/Clipboard.svg";
 import styles from "../Tasks/Tasks.module.css";
 
 interface Props {
@@ -8,26 +9,41 @@ interface Props {
 
 export function Tasks({ tasks }: Props) {
 
+    const taskCount = tasks.length;
+    const taskCompleted = tasks.filter((task) => task.isCompleted).length;
+
     return (
         <section className={styles.tasks}>
             <header className={styles.header}>
                 <div>
                     <p>Tarefas Criadas</p>
-                    <span>10</span>
+                    <span>{taskCount}</span>
                 </div>
                 <div>
                     <p className={styles.textPurple}>Concluidas</p>
-                    <span>2 de 5 </span>
+                    <span>{taskCompleted} de {taskCount} </span>
                 </div>
             </header>
 
-            <div>
+            <div className={styles.list}>
                 {tasks.map((task) => (
                     <Task
                         key={task.id}
                         task={task}
                     />
                 ))}
+
+                {
+                    tasks.length <= 0 && (
+                        <section className={styles.empty}>
+                            <img src={Clipboard} />
+                            <div>
+                                <p>Você ainda não tem tarefas cadastradas</p>
+                                <span>Crie tarefas e organize seus itens a fazer</span>
+                            </div>
+                        </section>
+                    )
+                }
             </div>
         </section>
     )
